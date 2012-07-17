@@ -18,6 +18,7 @@
     </target>
 
     <target name="systemtests" depends="clean">
+        <antcall target="setup"></antcall>
         <antcall target="start-server"></antcall>
 
         <antcall target="demo"></antcall>
@@ -27,6 +28,22 @@
 	 -->
 
         <antcall target="stop-server"></antcall>
+    </target>
+
+    <target name="setup">
+        <exec executable="jacli">
+            <arg value="deletetarget"/>
+            <arg value="--target"/>
+            <arg value="jextensiontests"/>
+
+                </exec>
+        <exec executable="jacli">
+            <arg value="install"/>
+            <arg value="--target"/>
+            <arg value="jextensiontests"/>
+
+        </exec>
+
     </target>
 
     <target name="demo">
