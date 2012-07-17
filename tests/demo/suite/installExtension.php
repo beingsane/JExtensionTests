@@ -49,7 +49,7 @@ class InstallExtension extends SeleniumJoomlaTestCase
 		$this->waitForPageToLoad("30000");
 		$this->verifyTextPresent("I am just a dummy :~|");
 
-		$this->assertTrue($this->isTextPresent("Notice: Undefined property: JAdministrator::$JComponentTitle"));
+		$this->assertTrue($this->isTextPresent('Notice: Undefined property: JAdministrator::$JComponentTitle'));
 
 		$this->click("link=frontpage view of TestOne");
 		$this->waitForPageToLoad("30000");
