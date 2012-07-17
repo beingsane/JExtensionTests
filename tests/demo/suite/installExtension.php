@@ -6,7 +6,7 @@
  * Does a standard Joomla! installation
  */
 
-require_once 'SeleniumJoomlaTestCase.php';
+require_once '../SeleniumJoomlaTestCase.php';
 
 class InstallExtension extends SeleniumJoomlaTestCase
 {
@@ -45,20 +45,20 @@ class InstallExtension extends SeleniumJoomlaTestCase
 
 		$this->assertTextPresent("Installing component was successful.");
 
-		$this->click("link=TestOne");
-		$this->waitForPageToLoad("30000");
-		$this->assertTextPresent("I am just a dummy :~|");
+		//$this->click("link=TestOne");
+		//$this->waitForPageToLoad("30000");
+		//$this->assertTextPresent("I am just a dummy :~|");
 
 		//$this->assertTrue($this->isTextPresent('Notice: Undefined property: JAdministrator::$JComponentTitle'));
-		$this->assertTextPresent('Notice: Undefined property: JAdministrator::$JComponentTitle');
+		//$this->assertTextPresent('Notice: Undefined property: JAdministrator::$JComponentTitle');
 
-		$this->click("link=frontpage view of TestOne");
-		$this->waitForPageToLoad("30000");
+		//$this->click("link=frontpage view of TestOne");
+		//$this->waitForPageToLoad("30000");
 
-		$this->assertTextPresent("Fatal error: Call to undefined method JController::getInstance()");
+		//$this->assertTextPresent("Fatal error: Call to undefined method JController::getInstance()");
 
-		$this->open($cfg->path . '/administrator');
-		$this->waitForPageToLoad("30000");
+		//$this->open($cfg->path . '/administrator');
+		//$this->waitForPageToLoad("30000");
 
 		$this->doAdminLogout();
 		$this->deleteAllVisibleCookies();
