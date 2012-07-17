@@ -35,8 +35,8 @@ class InstallExtension extends SeleniumJoomlaTestCase
 		$this->click("link=Extension Manager");
 		$this->waitForPageToLoad("30000");
 
-		$this->type("id=install_directory", $path);
-		$this->click("//input[@value='Install']");
+	//	$this->type("id=install_directory", $path);
+	//	$this->click("//input[@value='Install']");
 
 		$this->type("id=install_package", $path);
 		$this->click("css=input.button");
