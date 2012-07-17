@@ -45,7 +45,7 @@
             <arg value="jextensiontests"/>
             <arg value="--version"/>
             <arg value="development"/>
-            <arg value=""/>
+            <arg value="--updaterepo"/>
             <arg value=""/>
         </exec>
 
