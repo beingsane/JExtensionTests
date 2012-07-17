@@ -46,6 +46,7 @@
             <arg value="--version"/>
             <arg value="development"/>
             <arg value="--updaterepo"/>
+            <arg value="--nobrowser"/>
         </exec>
 
     </target>
