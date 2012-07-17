@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="joomla" default="systemtests" basedir=".">
+    <property name="source" value="."/>
+    <property name="webRoot" value="/home/jtester/repos/joomla-extension-tests"/>
+
+    <target name="clean" description="Clean up and create artifact directories">
+        <delete dir="${basedir}/build/logs"/>
+        <delete dir="${basedir}/build/screenshots"/>
+
+        <delete dir="${webRoot}/build/screenshots"/>
+
+        <mkdir dir="${basedir}/build/logs"/>
+        <mkdir dir="${basedir}/build/screenshots"/>
+
+        <mkdir dir="${webRoot}/build/screenshots"/>
+        <echo file="${webRoot}/build/screenshots/hello.txt">I am just a Dummy :|</echo>
+    </target>
+
+    <target name="systemtests" depends="clean">
+        <antcall target="start-server"></antcall>
+
+        <antcall target="demo"></antcall>
+
+        <!--
+	 <antcall target="elkuku-easycreator"></antcall>
+	 -->
+
+        <antcall target="stop-server"></antcall>
+    </target>
+
+    <target name="demo">
+        <exec executable="phpunit">
+            <arg value="-c"/>
+            <arg value="tests/demo/phpunit.xml"/>
+            <arg value="--include-path"/>
+            <arg value="${basedir}/tests/demo"/>
+        </exec>
+    </target>
+
+    <target name="elkuku-easycreator">
+        <exec executable="phpunit">
+            <arg value="-c"/>
+            <arg value="tests/system-postgre/phpunit.xml"/>
+            <arg value="--include-path"/>
+            <arg value="${basedir}/tests/system-postgre"/>
+            <arg value="--debug"/>
+            <arg value="--verbose"/>
+        </exec>
+
+    </target>
+
+
+    <!-- @author: http://adam.goucher.ca/?p=423 -->
+    <target name="start-server">
+        <echo>Starting the server...</echo>
+        <java jar="/home/jtester/bin/java/selenium-server-standalone-2.24.1.jar"
+              fork="true"
+              spawn="true">
+            <!--
+            <arg line="-proxyInjectionMode"/>
+            -->
+        </java>
+
+        <waitfor maxwait="30" maxwaitunit="second">
+            <and>
+                <socket server="localhost" port="4444"/>
+                <!-- this url will 403, so we say that it should start counting errors at 404 to skip -->
+                <http url="http://localhost:4444/selenium-server/core/index.html" errorsBeginAt="404"/>
+            </and>
+        </waitfor>
+    </target>
+
+    <!-- @author: http://adam.goucher.ca/?p=423 -->
+    <target name="stop-server">
+        <get taskname="selenium-shutdown"
+             src="http://localhost:4444/selenium-server/driver/?cmd=shutDownSeleniumServer"
+             dest="result.txt" ignoreerrors="true"/>
+        <echo taskname="selenium-shutdown" message="DGF Errors during shutdown are expected"/>
+    </target>
+</project>
