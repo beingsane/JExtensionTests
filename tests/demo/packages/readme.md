@@ -1,1 +1,1 @@
-This directory contains the installable extension packages
+This directory contains the installable extension packages.

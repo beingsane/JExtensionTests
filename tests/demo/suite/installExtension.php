@@ -1,26 +1,42 @@
 <?php
 /**
- * @package		Joomla.SystemTest
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
- * Does a standard Joomla! installation
+ * @package        Joomla.SystemTest
+ * @copyright      Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license        GNU General Public License version 2 or later; see LICENSE.txt
+ *                 Does a standard Joomla! installation
  */
 
-require_once 'SeleniumJoomlaTestCase.php';
+if (false == defined('JPATH_TESTS_GLOBAL'))
+{
+	// Direct call
+	define('JPATH_TESTS_GLOBAL', realpath(dirname(dirname(__DIR__)).'/global'));
 
+	require_once '../SeleniumJoomlaTestCase.php';
+}
+else
+{
+	require_once 'SeleniumJoomlaTestCase.php';
+}
+
+/**
+ *
+ */
 class InstallExtension extends SeleniumJoomlaTestCase
 {
+	/**
+	 *
+	 */
 	function testInstallExtension()
 	{
-		$this->setUp();
-		$cfg = $this->cfg;
+		//$this->setUp();
+		//$cfg = $this->cfg;
 
-		$extensionDir = dirname(__DIR__).'/packages';
+		$extensionDir = dirname(__DIR__) . '/packages';
 
 		$extensionPackage = 'com_testone_1.0__20120717_1904.zip';
 
-		echo 'Extension Dir: '.$extensionDir."\n";
-		echo 'Extension    : '.$extensionPackage."\n";
+		echo 'Extension Dir: ' . $extensionDir . "\n";
+		echo 'Extension    : ' . $extensionPackage . "\n";
 
 		$path = $extensionDir . '/' . $extensionPackage;
 
@@ -35,8 +51,8 @@ class InstallExtension extends SeleniumJoomlaTestCase
 		$this->click("link=Extension Manager");
 		$this->waitForPageToLoad("30000");
 
-	//	$this->type("id=install_directory", $path);
-	//	$this->click("//input[@value='Install']");
+		//	$this->type("id=install_directory", $path);
+		//	$this->click("//input[@value='Install']");
 
 		$this->type("id=install_package", $path);
 		$this->click("css=input.button");

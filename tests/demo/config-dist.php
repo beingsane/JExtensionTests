@@ -22,26 +22,28 @@ class SeleniumConfig
 	// $host is normally 'http://localhost'
 	var $host = 'http://localhost';
 
+	// ?
+	var $selhost = '';
+
 	// $path is the rest of the URL to the Joomla! home page
 	// Example: Your full URL to Joomla! is http://localhost/joomla_16/index.php
 	// then $path would be '/joomla_16/'
 	var $path = '/your_joomla_root/';
 
 	// set the database host, database username, database pasword, and database name
-	var $db_type = 'MySQL';
+	var $db_type = 'MySQLi';
 	var $db_host = 'localhost';
 	var $db_user = 'root';
 	var $db_pass = 'password';
 	var $db_name = 'joomla-1-6_source';
-	var $db_type = 'MySQLi';
 	var $db_prefix = 'xxx_';
 
 	// optional setting to turn on Cache: values are off, on-basic, on-full
 	// change this value to set the caching in the doInstall.php test
 	var $cache = 'off';
-	
+
 	// optional setting to set administive template to hathor: set to 'hathor' to make hathor the default
-	// var $adminTemplate = 'hathor';  
+	// var $adminTemplate = 'hathor';
 
 	// optional setting to install sample data
 	// If not set or true, sample data is installed. Set to false to not install sample data

@@ -11,8 +11,7 @@ if (!defined('PHPUnit_MAIN_METHOD')) {
 
 set_include_path(get_include_path() . PATH_SEPARATOR . './PEAR/' . PATH_SEPARATOR . '../');
 
-//require_once 'PHPUnit/TextUI/TestRunner.php';
-require_once 'doInstall.php';
+require_once 'prepare.php';
 
 require 'installExtension.php';
 
@@ -30,7 +29,7 @@ class TestSuite
 	{
 		$suite = new PHPUnit_Framework_TestSuite('PHPUnit Framework');
 
-		$suite->addTestSuite('DoInstall');
+		$suite->addTestSuite('Prepare');
 
 		// @todo: add tests
 		$suite->addTestSuite('InstallExtension');
@@ -39,9 +38,16 @@ class TestSuite
 		return $suite;
 	}
 }
+/*
+
+I believe the following is not required any more.
+By using a common "bootstrap" i am able to run the whole suite or specific tests
+from the command line (linux) or from inside my IDE (PHPStorm)
+
+=;)
 
 if (PHPUnit_MAIN_METHOD == 'Framework_AllTests::main') {
-	print "running Framework_AllTests::main()";
+	//print "running Framework_AllTests::main()";
 	Framework_AllTests::main();
 }
 // the following section allows you to run this either from phpunit as
@@ -53,5 +59,5 @@ if (!class_exists('SeleniumConfig')) {
 	require_once 'servers/config-def.php';
 	TestSuite::main();
 }
-
+*/
 

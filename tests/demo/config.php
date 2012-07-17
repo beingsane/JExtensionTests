@@ -21,6 +21,9 @@ class SeleniumConfig
 	// $host is normally 'http://localhost'
 	public $host = 'http://dev.local';
 
+	// ?
+	var $selhost = '';
+
 	// $path is the rest of the URL to the Joomla! home page
 	// Example: Your full URL to Joomla! is http://localhost/joomla_xxx/index.php
 	// then $path would be '/joomla_xxx/'
