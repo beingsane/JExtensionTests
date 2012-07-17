@@ -6,7 +6,7 @@
  * Does a standard Joomla! installation
  */
 
-require_once '../SeleniumJoomlaTestCase.php';
+require_once 'SeleniumJoomlaTestCase.php';
 
 class InstallExtension extends SeleniumJoomlaTestCase
 {
