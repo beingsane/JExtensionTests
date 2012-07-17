@@ -14,6 +14,7 @@ class DoInstall extends SeleniumJoomlaTestCase
 	{
 		$this->setUp();
 		$cfg = $this->cfg;
+/*
 		$configFile = $cfg->folder.$cfg->path.'configuration.php';
 
 		if (file_exists($configFile)) {
@@ -84,7 +85,7 @@ class DoInstall extends SeleniumJoomlaTestCase
 		echo "Finish installation\n";
 		$this->click("//a[@rel=\"next\"]");
 		$this->waitforElement("//h3[contains(text(), 'Joomla! is now installed')]");
-
+*/
 		echo "Login to back end\n";
 		$this->gotoAdmin();
 		$this->doAdminLogin();
