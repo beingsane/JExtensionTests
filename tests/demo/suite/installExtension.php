@@ -45,6 +45,14 @@ class InstallExtension extends SeleniumJoomlaTestCase
 
 		$this->verifyTextPresent("Installing component was successful.");
 
+		$this->click("link=TestOne");
+		$this->waitForPageToLoad("30000");
+		$this->verifyTextPresent("I am just a dummy :~|");
+
+		$this->click("link=frontpage view of TestOne");
+		$this->waitForPageToLoad("30000");
+		$this->verifyTextPresent("Fatal error: Call to undefined method JController::getInstance()");
+
 		$this->doAdminLogout();
 		$this->deleteAllVisibleCookies();
 	}
