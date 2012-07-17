@@ -15,6 +15,8 @@ class InstallExtension extends SeleniumJoomlaTestCase
 		$this->setUp();
 		$cfg = $this->cfg;
 
+		$extensionDir = __DIR__;
+
 		echo "Login to back end\n";
 		$this->gotoAdmin();
 		$this->doAdminLogin();
@@ -22,10 +24,10 @@ class InstallExtension extends SeleniumJoomlaTestCase
 		$this->open("/jextensiontests/administrator/index.php?option=com_installer");
 		$this->click("link=Extension Manager");
 		$this->waitForPageToLoad("30000");
-		$this->type("id=install_directory", "/home/jtester/srv/www/htdocs/jextensiontests/tmp/aaa.zip");
+		$this->type("id=install_directory", $extensionDir);
 		$this->click("//input[@value='Install']");
 		$this->waitForPageToLoad("30000");
-		$this->verifyTextPresent("Please enter a package directoryx");
+		$this->verifyTextPresent("Please enter a package directory");
 
 		$this->doAdminLogout();
 		$this->deleteAllVisibleCookies();
