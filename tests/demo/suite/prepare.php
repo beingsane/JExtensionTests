@@ -12,12 +12,13 @@ if (false == defined('JPATH_TESTS_GLOBAL'))
 	// Direct call
 	define('JPATH_TESTS_GLOBAL', realpath(dirname(dirname(__DIR__)).'/global'));
 echo JPATH_TESTS_GLOBAL;
-	require_once '../SeleniumJoomlaTestCase.php';
+	//require_once dirname(__DIR__).'/SeleniumJoomlaTestCase.php';
 }
 else
 {
-	require_once 'SeleniumJoomlaTestCase.php';
+	//require_once 'SeleniumJoomlaTestCase.php';
 }
+require_once dirname(__DIR__).'/SeleniumJoomlaTestCase.php';
 
 class Prepare extends SeleniumJoomlaTestCase
 {
