@@ -14,6 +14,8 @@ set_include_path(get_include_path() . PATH_SEPARATOR . './PEAR/' . PATH_SEPARATO
 //require_once 'PHPUnit/TextUI/TestRunner.php';
 require_once 'doInstall.php';
 
+require 'installExtension.php';
+
 // @todo: add tests
 // require_once '...';
 
@@ -31,6 +33,7 @@ class TestSuite
 		$suite->addTestSuite('DoInstall');
 
 		// @todo: add tests
+		$suite->addTestSuite('InstallExtension');
 		// $suite->addTestSuite('...');
 
 		return $suite;
