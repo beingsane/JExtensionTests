@@ -49,9 +49,14 @@ class InstallExtension extends SeleniumJoomlaTestCase
 		$this->waitForPageToLoad("30000");
 		$this->verifyTextPresent("I am just a dummy :~|");
 
+		$this->assertTrue($this->isTextPresent("Notice: Undefined property: JAdministrator::$JComponentTitle"));
+
 		$this->click("link=frontpage view of TestOne");
 		$this->waitForPageToLoad("30000");
+
 		$this->verifyTextPresent("Fatal error: Call to undefined method JController::getInstance()");
+
+		$this->open($cfg->path . '/administrator');
 
 		$this->doAdminLogout();
 		$this->deleteAllVisibleCookies();
