@@ -15,7 +15,9 @@ class InstallExtension extends SeleniumJoomlaTestCase
 		$this->setUp();
 		$cfg = $this->cfg;
 
-		$extensionDir = __DIR__;
+		$extensionDir = __DIR__.'/eeee.zip';
+
+		echo 'Extension Dir: '.$extensionDir."\n";
 
 		echo "Login to back end\n";
 		$this->gotoAdmin();
