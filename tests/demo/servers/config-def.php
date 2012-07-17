@@ -16,8 +16,7 @@ class SeleniumConfig
 {
 
 	// $folder is the path to the apache root folder
-	public $folder = '/home/jtester/srv/www/htdocs'; // typical windows example with XAMPP
-//	public $folder = '/usr/local/apache/htdocs'; // typical linux example
+	public $folder = '/home/jtester/srv/www/htdocs';
 
 	// $host is normally 'http://localhost'
 	public $host = 'http://dev.local';
@@ -25,15 +24,15 @@ class SeleniumConfig
 	// $path is the rest of the URL to the Joomla! home page
 	// Example: Your full URL to Joomla! is http://localhost/joomla_xxx/index.php
 	// then $path would be '/joomla_xxx/'
-	public $path = '/joomla-cms-postgre/';
+	public $path = '/jextensiontests/';
 
 	// set the database host, database username, database pasword, and database name
 	public $db_host = 'localhost';
-	public $db_user = 'postgres';
-	public $db_pass = 'postgres';
-	public $db_name = 'jsystemtestspostgre';
-	public $db_type = 'Postgresql';
-	public $db_prefix = 'xxx_';
+	public $db_user = 'root';
+	public $db_pass = '';
+	public $db_name = 'jextensiontests';
+	public $db_type = 'Mysqli';
+	public $db_prefix = 'joomla_';
 
 	// optional setting to turn on Cache: values are off, on-basic, on-full
 	// change this value to set the caching in the doInstall.php test
@@ -47,7 +46,7 @@ class SeleniumConfig
 	public $sample_data = true;
 
 	// set the site name
-	public $site_name = 'Joomla! PostgreSql Tests';
+	public $site_name = 'Joomla! Extension Tests';
 
 	// set the admin login, admin password, and admin email address
 	public $username = 'admin';
@@ -59,8 +58,8 @@ class SeleniumConfig
 
 	// Screenshots
 	public $captureScreenshotOnFailure = true;
-	public $screenshotPath = '/home/jtester/repos/joomla-cms-postgre/build/screenshots/';
-	public $screenshotUrl = 'http://dev.local/joomla-cms-postgre/build/screenshots/';
+	public $screenshotPath = '/home/jtester/repos/joomla-extension-tests/build/screenshots/';
+	public $screenshotUrl = 'http://dev.local/joomla-extension-tests/build/screenshots/';
 
 	public function __construct()
 	{
