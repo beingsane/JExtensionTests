@@ -12,7 +12,7 @@ if (!defined('PHPUnit_MAIN_METHOD')) {
 set_include_path(get_include_path() . PATH_SEPARATOR . './PEAR/' . PATH_SEPARATOR . '../');
 
 //require_once 'PHPUnit/TextUI/TestRunner.php';
-require_once 'doInstall.php';
+//require_once 'doInstall.php';
 
 // @todo: add tests
 // require_once '...';
@@ -28,7 +28,7 @@ class TestSuite
 	{
 		$suite = new PHPUnit_Framework_TestSuite('PHPUnit Framework');
 
-		$suite->addTestSuite('DoInstall');
+		//$suite->addTestSuite('DoInstall');
 
 		// @todo: add tests
 		// $suite->addTestSuite('...');
