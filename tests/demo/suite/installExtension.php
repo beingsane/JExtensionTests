@@ -24,6 +24,9 @@ class InstallExtension extends SeleniumJoomlaTestCase
 
 		$path = $extensionDir . '/' . $extensionPackage;
 
+//		$dirWorkspace = '/home/jtester/.jenkins/jobs/Joomla CMS Extension Test/workspace';
+//		/tests/demo/packages/com_testone_1.0__20120717_1904.zip
+
 		echo "Login to back end\n";
 		$this->gotoAdmin();
 		$this->doAdminLogin();
@@ -31,10 +34,16 @@ class InstallExtension extends SeleniumJoomlaTestCase
 		$this->open("/jextensiontests/administrator/index.php?option=com_installer");
 		$this->click("link=Extension Manager");
 		$this->waitForPageToLoad("30000");
+
 		$this->type("id=install_directory", $path);
 		$this->click("//input[@value='Install']");
+
+		$this->type("id=install_package", $path);
+		$this->click("css=input.button");
+
 		$this->waitForPageToLoad("30000");
-		$this->verifyTextPresent("Please enter a package directory");
+
+		$this->verifyTextPresent("Installing component was successful.");
 
 		$this->doAdminLogout();
 		$this->deleteAllVisibleCookies();
