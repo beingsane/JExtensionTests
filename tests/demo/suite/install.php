@@ -21,12 +21,12 @@ else
 /**
  *
  */
-class InstallExtension extends SeleniumJoomlaTestCase
+class Install extends SeleniumJoomlaTestCase
 {
 	/**
 	 *
 	 */
-	function testInstallExtension()
+	function testInstall()
 	{
 		//$this->setUp();
 		//$cfg = $this->cfg;
@@ -34,6 +34,7 @@ class InstallExtension extends SeleniumJoomlaTestCase
 		$extensionDir = dirname(__DIR__) . '/packages';
 
 		$extensionPackage = 'com_testone_1.0__20120717_1904.zip';
+		$extensionPackage = 'com_testone_1.0.zip';
 
 		echo 'Extension Dir: ' . $extensionDir . "\n";
 		echo 'Extension    : ' . $extensionPackage . "\n";

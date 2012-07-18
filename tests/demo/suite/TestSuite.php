@@ -11,12 +11,13 @@ if (!defined('PHPUnit_MAIN_METHOD')) {
 
 set_include_path(get_include_path() . PATH_SEPARATOR . './PEAR/' . PATH_SEPARATOR . '../');
 
-require_once 'prepare.php';
-
-require 'installExtension.php';
+require 'prepare.php';
+require 'install.php';
+require 'backend.php';
+require 'frontend.php';
 
 // @todo: add tests
-// require_once '...';
+// require '...';
 
 class TestSuite
 {
@@ -30,9 +31,11 @@ class TestSuite
 		$suite = new PHPUnit_Framework_TestSuite('PHPUnit Framework');
 
 		$suite->addTestSuite('Prepare');
+		$suite->addTestSuite('Install');
+		$suite->addTestSuite('Backend');
+		$suite->addTestSuite('Frontend');
 
 		// @todo: add tests
-		$suite->addTestSuite('InstallExtension');
 		// $suite->addTestSuite('...');
 
 		return $suite;

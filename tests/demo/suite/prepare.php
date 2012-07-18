@@ -27,11 +27,11 @@ class Prepare extends SeleniumJoomlaTestCase
 		$this->out('Login to back end')
 			->gotoAdmin()
 			->doAdminLogin()
-			->out('Change error level to maximum')
+			->out('Change error level to development')
 			->jClick('Global Configuration');
 
 		$this->click("server");
-		$this->select("jform_error_reporting", "label=Maximum");
+		$this->select("jform_error_reporting", "label=Development");
 		$this->click("//li[@id='toolbar-save']/a/span");
 		$this->waitForPageToLoad("30000");
 
