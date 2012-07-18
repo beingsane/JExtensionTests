@@ -6,18 +6,8 @@
  * Does a standard Joomla! installation
  */
 
-if (false == defined('JPATH_TESTS_GLOBAL'))
-{
-	echo __DIR__;
-	// Direct call
-	define('JPATH_TESTS_GLOBAL', realpath(dirname(dirname(__DIR__)).'/global'));
-echo JPATH_TESTS_GLOBAL;
-	//require_once dirname(__DIR__).'/SeleniumJoomlaTestCase.php';
-}
-else
-{
-	//require_once 'SeleniumJoomlaTestCase.php';
-}
+defined('JPATH_TESTS_GLOBAL') || define('JPATH_TESTS_GLOBAL', realpath(dirname(dirname(__DIR__)).'/global'));
+
 require_once dirname(__DIR__).'/SeleniumJoomlaTestCase.php';
 
 class Prepare extends SeleniumJoomlaTestCase
@@ -49,6 +39,7 @@ class Prepare extends SeleniumJoomlaTestCase
 		}
 
 		$this->doAdminLogout();
+
 		$this->deleteAllVisibleCookies();
 	}
 }

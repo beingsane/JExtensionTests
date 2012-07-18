@@ -6,17 +6,9 @@
  *                 Does a standard Joomla! installation
  */
 
-if (false == defined('JPATH_TESTS_GLOBAL'))
-{
-	// Direct call
-	define('JPATH_TESTS_GLOBAL', realpath(dirname(dirname(__DIR__)).'/global'));
+defined('JPATH_TESTS_GLOBAL') || define('JPATH_TESTS_GLOBAL', realpath(dirname(dirname(__DIR__)).'/global'));
 
-	require_once '../SeleniumJoomlaTestCase.php';
-}
-else
-{
-	require_once 'SeleniumJoomlaTestCase.php';
-}
+require_once dirname(__DIR__).'/SeleniumJoomlaTestCase.php';
 
 /**
  *

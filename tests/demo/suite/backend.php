@@ -6,17 +6,9 @@
  *                 Does a standard Joomla! installation
  */
 
-if (false == defined('JPATH_TESTS_GLOBAL'))
-{
-	// Direct call
-	define('JPATH_TESTS_GLOBAL', realpath(dirname(dirname(__DIR__)).'/global'));
+defined('JPATH_TESTS_GLOBAL') || define('JPATH_TESTS_GLOBAL', realpath(dirname(dirname(__DIR__)).'/global'));
 
-	require_once '../SeleniumJoomlaTestCase.php';
-}
-else
-{
-	require_once 'SeleniumJoomlaTestCase.php';
-}
+require_once dirname(__DIR__).'/SeleniumJoomlaTestCase.php';
 
 /**
  *
@@ -35,6 +27,8 @@ class Backend extends SeleniumJoomlaTestCase
 		$this->click("link=TestOne");
 
 		$this->waitForPageToLoad("30000");
+
+		$this->out('Verify that a text is present');
 
 		$this->assertTextPresent("I am just a dummy :~|");
 

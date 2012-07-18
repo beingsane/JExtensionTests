@@ -84,7 +84,7 @@
             -->
         </java>
 
-        <waitfor maxwait="30" maxwaitunit="second">
+        <waitfor maxwait="15" maxwaitunit="second">
             <and>
                 <socket server="localhost" port="4444"/>
                 <!-- this url will 403, so we say that it should start counting errors at 404 to skip -->
