@@ -3,6 +3,7 @@
 <project name="joomla" default="systemtests" basedir=".">
     <property name="source" value="."/>
     <property name="webRoot" value="/home/jtester/repos/joomla-extension-tests"/>
+    <property name="seleniumExe" value="/home/jtester/bin/java/selenium-server-standalone-2.24.1.jar"/>
 
     <target name="clean" description="Clean up and create artifact directories">
         <delete dir="${basedir}/build/logs"/>
@@ -67,13 +68,10 @@
             <arg value="--include-path"/>
             <arg value="${basedir}/tests/elkuku-easycreator"/>
         </exec>
-
     </target>
 
-    <!-- @author: http://adam.goucher.ca/?p=423 -->
     <target name="start-server">
-        <echo>Starting the server...</echo>
-        <java jar="/home/jtester/bin/java/selenium-server-standalone-2.24.1.jar"
+        <java jar="${seleniumExe}"
               fork="true"
               spawn="true">
             <!--
@@ -90,11 +88,9 @@
         </waitfor>
     </target>
 
-    <!-- @author: http://adam.goucher.ca/?p=423 -->
     <target name="stop-server">
         <get taskname="selenium-shutdown"
              src="http://localhost:4444/selenium-server/driver/?cmd=shutDownSeleniumServer"
              dest="result.txt" ignoreerrors="true"/>
-        <echo taskname="selenium-shutdown" message="DGF Errors during shutdown are expected"/>
     </target>
 </project>
