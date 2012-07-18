@@ -1,6 +1,8 @@
 # Demo test
 
-* ```packages``` Contains your installable zip package for the test.
+Use the contents of this folder as a template for custom extension tests.
+
+* ```packages``` Contains your installable zip package to be tested.
 * * ```com_X.zip```
 * ```suite``` Contains your test suite
 * * ```TestSuite.php``` The base class

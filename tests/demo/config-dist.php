@@ -14,53 +14,58 @@
 
 class SeleniumConfig
 {
-
 	// $folder is the path to the apache root folder
-	var $folder = 'c:/xampp/htdocs'; // typical windows example with XAMPP
-//	var $folder = '/usr/local/apache/htdocs'; // typical linux example
+	public $folder = 'c:/xampp/htdocs'; // typical windows example with XAMPP
+//	public $folder = '/usr/local/apache/htdocs'; // typical linux example
 
 	// $host is normally 'http://localhost'
-	var $host = 'http://localhost';
+	public $host = 'http://localhost';
 
 	// ?
-	var $selhost = '';
+	public $selhost = '';
 
 	// $path is the rest of the URL to the Joomla! home page
-	// Example: Your full URL to Joomla! is http://localhost/joomla_16/index.php
-	// then $path would be '/joomla_16/'
-	var $path = '/your_joomla_root/';
+	// Example: Your full URL to Joomla! is http://localhost/joomla_xxx/index.php
+	// then $path would be '/joomla_xxx/'
+	public $path = '/your_joomla_root/';
 
 	// set the database host, database username, database pasword, and database name
-	var $db_type = 'MySQLi';
-	var $db_host = 'localhost';
-	var $db_user = 'root';
-	var $db_pass = 'password';
-	var $db_name = 'joomla-1-6_source';
-	var $db_prefix = 'xxx_';
+	public $db_type = 'Mysqli';
+	public $db_host = 'localhost';
+	public $db_user = 'root';
+	public $db_pass = 'password';
+	public $db_name = 'joomla-source';
+	public $db_prefix = 'xxx_';
 
 	// optional setting to turn on Cache: values are off, on-basic, on-full
 	// change this value to set the caching in the doInstall.php test
-	var $cache = 'off';
+	public $cache = 'off';
 
 	// optional setting to set administive template to hathor: set to 'hathor' to make hathor the default
-	// var $adminTemplate = 'hathor';
+	// public $adminTemplate = 'hathor';
 
 	// optional setting to install sample data
 	// If not set or true, sample data is installed. Set to false to not install sample data
-	//	var $sample_data = false;
+	public $sample_data = true;
 
 	// set the site name
-	var $site_name = 'Joomla! 1.6 Source';
+	public $site_name = 'Joomla! Extension Tests';
 
 	// set the admin login, admin password, and admin email address
-	var $username = 'admin';
-	var $password = 'password';
-	var $admin_email = 'you@yourdomain.com';
+	public $username = 'admin';
+	public $password = 'password';
+	public $admin_email = 'you@yourdomain.com';
 
 	// this setting will use the default browser for your system
-	var $browser = '*chrome';
+	public $browser = '*chrome';
 
-	public function __construct() {
+	// Screenshots
+	public $captureScreenshotOnFailure = true;
+	public $screenshotPath = '/home/jtester/repos/joomla-extension-tests/build/screenshots/';
+	public $screenshotUrl = 'http://dev.local/joomla-extension-tests/build/screenshots/';
+
+	public function __construct()
+	{
 		$this->baseURI = $this->folder . $this->path;
 	}
 

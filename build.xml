@@ -63,15 +63,12 @@
     <target name="elkuku-easycreator">
         <exec executable="phpunit">
             <arg value="-c"/>
-            <arg value="tests/system-postgre/phpunit.xml"/>
+            <arg value="tests/elkuku-easycreator/phpunit.xml"/>
             <arg value="--include-path"/>
-            <arg value="${basedir}/tests/system-postgre"/>
-            <arg value="--debug"/>
-            <arg value="--verbose"/>
+            <arg value="${basedir}/tests/elkuku-easycreator"/>
         </exec>
 
     </target>
-
 
     <!-- @author: http://adam.goucher.ca/?p=423 -->
     <target name="start-server">

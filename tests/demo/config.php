@@ -14,7 +14,6 @@
 
 class SeleniumConfig
 {
-
 	// $folder is the path to the apache root folder
 	public $folder = '/home/jtester/srv/www/htdocs';
 
@@ -46,7 +45,6 @@ class SeleniumConfig
 
 	// optional setting to install sample data
 	// If not set or true, sample data is installed. Set to false to not install sample data
-	public $sample_data = true;
 
 	// set the site name
 	public $site_name = 'Joomla! Extension Tests';
@@ -56,7 +54,7 @@ class SeleniumConfig
 	public $password = 'test';
 	public $admin_email = 'demo@example.org';
 
-	// this setting will use the default browser for your system
+	// this setting will use the defaulvart browser for your system
 	public $browser = '*chrome';
 
 	// Screenshots
