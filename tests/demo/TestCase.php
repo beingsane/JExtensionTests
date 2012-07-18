@@ -7,7 +7,7 @@
 
 defined('JPATH_TESTS_GLOBAL') || define('JPATH_TESTS_GLOBAL', dirname(__DIR__).'/global');
 
-require JPATH_TESTS_GLOBAL . '/seleniumhelper.php';
+require JPATH_TESTS_GLOBAL . '/joomlatestcase.php';
 
 $configPath = __DIR__.'/config.php';
 
@@ -15,7 +15,10 @@ file_exists($configPath) || die('Please create the config.php file in '.$configP
 
 require_once $configPath;
 
-class SeleniumJoomlaTestCase extends JoomlaTestsSeleniumhelper
+/**
+ * Custom test case class.
+ */
+class TestCase extends JoomlaTestCase
 {
 	/**
 	 * Setup the test case.
@@ -36,7 +39,9 @@ class SeleniumJoomlaTestCase extends JoomlaTestsSeleniumhelper
 		$this->screenshotPath = $this->cfg->screenshotPath;
 		$this->screenshotUrl = $this->cfg->screenshotUrl;
 
-		echo ".\n" . 'Starting ' . get_class($this) . ".\n";
-	}
+		$this->out()
+			->out(sprintf('Starting %s...', get_class($this)));
 
+		//echo ".\n" . 'Starting ' . get_class($this) . ".\n";
+	}
 }

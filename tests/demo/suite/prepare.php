@@ -8,9 +8,9 @@
 
 defined('JPATH_TESTS_GLOBAL') || define('JPATH_TESTS_GLOBAL', realpath(dirname(dirname(__DIR__)).'/global'));
 
-require_once dirname(__DIR__).'/SeleniumJoomlaTestCase.php';
+require_once dirname(__DIR__).'/TestCase.php';
 
-class Prepare extends SeleniumJoomlaTestCase
+class Prepare extends TestCase
 {
 	function testPrepare()
 	{

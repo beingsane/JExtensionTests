@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-class JoomlaTestsSeleniumhelper extends PHPUnit_Extensions_SeleniumTestCase
+class JoomlaTestCase extends PHPUnit_Extensions_SeleniumTestCase
 {
 	/**
 	 * Configuration so tests can get at the fields.
@@ -16,7 +16,7 @@ class JoomlaTestsSeleniumhelper extends PHPUnit_Extensions_SeleniumTestCase
 	 */
 	public $cfg;
 
-	public function out($string, $nl = true)
+	public function out($string = '', $nl = true)
 	{
 		echo $string;
 
